@@ -1,4 +1,4 @@
-pragma solidity ^0.5.10;
+pragma solidity ^0.6.7;
 
 
 /**
@@ -122,7 +122,7 @@ contract MixTrustedAccounts {
      * @dev Check if an account trusts multiple accounts.
      * @param account Account to be checked if it trusts multiple accounts.
      * @param accountsToCheck Accounts to be checked if they are trusted.
-     * @return Array of results.
+     * @return results Array of results.
      */
     function getIsTrustedByAccountMultiple(address account, address[] memory accountsToCheck) public view returns (bool[] memory results) {
         results = new bool[](accountsToCheck.length);
@@ -134,7 +134,7 @@ contract MixTrustedAccounts {
     /**
      * @dev Check if the sender trusts multiple accounts.
      * @param accountsToCheck Accounts to be checked if they are trusted.
-     * @return Array of results.
+     * @return results Array of results.
      */
     function getIsTrustedMultiple(address[] calldata accountsToCheck) external view returns (bool[] memory results) {
         results = getIsTrustedByAccountMultiple(msg.sender, accountsToCheck);
@@ -170,7 +170,7 @@ contract MixTrustedAccounts {
      * @dev Check only deep if the sender trusts multiple accounts.
      * @param account Account to be checked if it trusts multiple accounts.
      * @param accountsToCheck Accounts to be checked if they are trusted.
-     * @return Array of results.
+     * @return results Array of results.
      */
     function getIsTrustedOnlyDeepByAccountMultiple(address account, address[] memory accountsToCheck) public view returns (bool[] memory results) {
         results = new bool[](accountsToCheck.length);
@@ -182,7 +182,7 @@ contract MixTrustedAccounts {
     /**
      * @dev Check only deep if the sender trusts multiple accounts.
      * @param accountsToCheck Accounts to be checked if they are trusted.
-     * @return Array of results.
+     * @return results Array of results.
      */
     function getIsTrustedOnlyDeepMultiple(address[] calldata accountsToCheck) external view returns (bool[] memory results) {
         results = getIsTrustedOnlyDeepByAccountMultiple(msg.sender, accountsToCheck);
@@ -215,7 +215,7 @@ contract MixTrustedAccounts {
      * @dev Check deep if the sender trusts multiple accounts.
      * @param account Account to be checked if it trusts multiple accounts.
      * @param accountsToCheck Accounts to be checked if they are trusted.
-     * @return Array of results.
+     * @return results Array of results.
      */
     function getIsTrustedDeepByAccountMultiple(address account, address[] memory accountsToCheck) public view returns (bool[] memory results) {
         results = new bool[](accountsToCheck.length);
@@ -227,7 +227,7 @@ contract MixTrustedAccounts {
     /**
      * @dev Check deep if the sender trusts multiple accounts.
      * @param accountsToCheck Accounts to be checked if they are trusted.
-     * @return Array of results.
+     * @return results Array of results.
      */
     function getIsTrustedDeepMultiple(address[] calldata accountsToCheck) external view returns (bool[] memory results) {
         results = getIsTrustedDeepByAccountMultiple(msg.sender, accountsToCheck);
@@ -270,7 +270,7 @@ contract MixTrustedAccounts {
      * @dev Get a list of trusted accounts that trust an account.
      * @param account Account to be checked who it trusts that trusts accountToCheck.
      * @param accountToCheck Account to check who trusts it.
-     * @return List of accounts that are trusted by account and trust accountToCheck.
+     * @return results List of accounts that are trusted by account and trust accountToCheck.
      */
     function getTrustedThatTrustAccountByAccount(address account, address accountToCheck) public view returns (address[] memory results) {
         address[] storage trusted = accountTrustedAccountList[account];
@@ -297,7 +297,7 @@ contract MixTrustedAccounts {
     /**
      * @dev Get a list of trusted accounts that trust an account.
      * @param accountToCheck Account to check who trusts it.
-     * @return List of accounts that are trusted by sender and trust accountToCheck.
+     * @return results List of accounts that are trusted by sender and trust accountToCheck.
      */
     function getTrustedThatTrustAccount(address accountToCheck) external view returns (address[] memory results) {
         results = getTrustedThatTrustAccountByAccount(msg.sender, accountToCheck);

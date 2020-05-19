@@ -1,4 +1,4 @@
-pragma solidity ^0.5.11;
+pragma solidity ^0.6.7;
 
 import "./ERC165.sol";
 import "./MixAccountInterface.sol";
@@ -48,7 +48,7 @@ contract MixAccount is ERC165, MixAccountInterface, ERC1155TokenReceiver {
      * @dev Set which address controls this account.
      * @param newController New controller of the account.
      */
-    function setController(address payable newController) external isController {
+    function setController(address payable newController) override external isController {
         // Store the controller.
         controller = newController;
         // Log the event.
@@ -62,14 +62,14 @@ contract MixAccount is ERC165, MixAccountInterface, ERC1155TokenReceiver {
      * @return success True if the call did not revert.
      * @return returnData Data returned from the call.
      */
-    function sendCall(address to, bytes calldata data) external payable isController returns (bool success, bytes memory returnData) {
+    function sendCall(address to, bytes calldata data) override external payable isController returns (bool success, bytes memory returnData) {
         // Send the data.
         uint value = msg.value;
         bytes memory _data = data;
         uint returnSize;
         assembly {
             success := call(not(0), to, value, add(_data, 0x20), mload(_data), 0, 0)
-            returnSize := returndatasize
+            returnSize := returndatasize()
         }
         returnData = new bytes(returnSize);
         assembly {
@@ -92,7 +92,7 @@ contract MixAccount is ERC165, MixAccountInterface, ERC1155TokenReceiver {
      * @param to Address to receive the call.
      * @param data The calldata.
      */
-    function sendCallNoReturn(address to, bytes calldata data) external payable isController {
+    function sendCallNoReturn(address to, bytes calldata data) override external payable isController {
         // Send the data.
         uint value = msg.value;
         bytes memory _data = data;
@@ -104,7 +104,7 @@ contract MixAccount is ERC165, MixAccountInterface, ERC1155TokenReceiver {
         if (!success) {
             uint returnSize;
             assembly {
-                returnSize := returndatasize
+                returnSize := returndatasize()
             }
             bytes memory returnData = new bytes(returnSize);
             assembly {
@@ -123,7 +123,7 @@ contract MixAccount is ERC165, MixAccountInterface, ERC1155TokenReceiver {
     /**
      * @dev Send all MIX to the controller.
      */
-    function withdraw() external isController {
+    function withdraw() override external isController {
         // Transfer the balance to the controller.
         address _sender = msg.sender;
         uint value = address(this).balance;
@@ -135,14 +135,14 @@ contract MixAccount is ERC165, MixAccountInterface, ERC1155TokenReceiver {
     /**
      * @dev Destroy the contract and return any funds to the controller.
      */
-    function destroy() external isController {
+    function destroy() override external isController {
         selfdestruct(controller);
     }
 
     /**
      * @dev Fallback function.
      */
-    function() external payable hasValue {
+    receive() override payable external hasValue {
         // Check call didn't come from the controller.
         if (msg.sender != controller) {
             // Log the event.
@@ -158,7 +158,7 @@ contract MixAccount is ERC165, MixAccountInterface, ERC1155TokenReceiver {
      * @param value The amount of tokens being transferred.
      * @return `bytes4(keccak256("onERC1155Received(address,address,uint256,uint256,bytes)"))`
      */
-    function onERC1155Received(address operator, address from, uint id, uint value, bytes calldata) external returns (bytes4) {
+    function onERC1155Received(address operator, address from, uint id, uint value, bytes calldata) override external returns (bytes4) {
         // Check call didn't come from the controller.
         if (from != controller) {
             // Log the event.
@@ -175,7 +175,7 @@ contract MixAccount is ERC165, MixAccountInterface, ERC1155TokenReceiver {
      * @param values An array containing amounts of each token being transferred (order and length must match ids array).
      * @return `bytes4(keccak256("onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"))`
      */
-    function onERC1155BatchReceived(address operator, address from, uint[] calldata ids, uint[] calldata values, bytes calldata) external returns (bytes4) {
+    function onERC1155BatchReceived(address operator, address from, uint[] calldata ids, uint[] calldata values, bytes calldata) override external returns (bytes4) {
         // Check call didn't come from the controller.
         if (from != controller) {
             uint count = ids.length;
@@ -192,7 +192,7 @@ contract MixAccount is ERC165, MixAccountInterface, ERC1155TokenReceiver {
      * @param interfaceId The interface identifier, as specified in ERC-165.
      * @return true if the contract implements interfaceID.
      */
-    function supportsInterface(bytes4 interfaceId) external view returns (bool) {
+    function supportsInterface(bytes4 interfaceId) override external view returns (bool) {
         if (interfaceId == 0x01ffc9a7 ||    // EIP165
             interfaceId == 0x527f66d8 ||    // MixAccountInterface
             interfaceId == 0x4e2312e0)      // ERC1155TokenReceiver

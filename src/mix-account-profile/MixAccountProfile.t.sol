@@ -1,12 +1,12 @@
-pragma solidity ^0.5.10;
+pragma solidity ^0.6.7;
 
 import "ds-test/test.sol";
 
 import "./MixAccountProfile.sol";
 
-import "mix-item-store/MixItemStoreRegistry.sol";
-import "mix-item-store/MixItemStoreIpfsSha256.sol";
-import "mix-item-store/MixItemStoreIpfsSha256Proxy.sol";
+import "../mix-item-store/MixItemStoreRegistry.sol";
+import "../mix-item-store/MixItemStoreIpfsSha256.sol";
+import "../mix-item-store/MixItemStoreIpfsSha256Proxy.sol";
 
 
 contract MixAccountProfileTest is DSTest {

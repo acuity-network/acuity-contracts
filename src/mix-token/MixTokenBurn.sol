@@ -1,4 +1,4 @@
-pragma solidity ^0.5.12;
+pragma solidity ^0.6.7;
 
 import "./MixTokenInterface.sol";
 import "./MixTokenItemRegistry.sol";
@@ -297,7 +297,7 @@ contract MixTokenBurn {
     /**
      * @dev Get the token that can be burned for an item.
      * @param itemId itemId of the item.
-     * @return Token that can be burned for the item.
+     * @return token Token that can be burned for the item.
      */
     function getTokenToBurnItem(bytes32 itemId) public view returns (MixTokenOwnedInterface token) {
         token = itemTokenToBurn[itemId];

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.11;
+pragma solidity ^0.6.7;
 
 import "ds-test/test.sol";
 
@@ -11,7 +11,7 @@ contract MixAccountTest is DSTest {
     MixAccountProxy mixAccountProxy;
     Mock mock;
 
-    function() external payable {}
+    receive() payable external {}
 
     function setUp() public {
         mixAccount = new MixAccount();
@@ -31,7 +31,7 @@ contract MixAccountTest is DSTest {
     function testSendCallSuccess() public {
         uint startBalance = address(this).balance;
         assertEq(address(mock).balance, 0);
-        (bool success, bytes memory returnData) = mixAccount.sendCall.value(50)(address(mock), hex"cf7d0b9f");
+        (bool success, bytes memory returnData) = mixAccount.sendCall{value: 50}(address(mock), hex"cf7d0b9f");
         assertTrue(success);
         assertEq0(returnData, hex"000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000077375636365737300000000000000000000000000000000000000000000000000");
         assertEq(address(mock).balance, 50);
@@ -41,7 +41,7 @@ contract MixAccountTest is DSTest {
     function testSendCallFail() public {
         uint startBalance = address(this).balance;
         assertEq(address(mock).balance, 0);
-        (bool success, bytes memory returnData) = mixAccount.sendCall.value(50)(address(mock), hex"dad03cb0");
+        (bool success, bytes memory returnData) = mixAccount.sendCall{value: 50}(address(mock), hex"dad03cb0");
         assertTrue(!success);
         assertEq0(returnData, hex"08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000056572726f72000000000000000000000000000000000000000000000000000000");
         assertEq(address(mock).balance, 0);
@@ -51,7 +51,7 @@ contract MixAccountTest is DSTest {
     function testSendCallNoReturnSuccess() public {
         uint startBalance = address(this).balance;
         assertEq(address(mock).balance, 0);
-        mixAccount.sendCallNoReturn.value(50)(address(mock), hex"cf7d0b9f");
+        mixAccount.sendCallNoReturn{value: 50}(address(mock), hex"cf7d0b9f");
         assertEq(address(mock).balance, 50);
         assertEq(address(this).balance, startBalance - 50);
     }
@@ -59,7 +59,7 @@ contract MixAccountTest is DSTest {
     function testSendCallNoReturnFail() public {
         uint startBalance = address(this).balance;
         assertEq(address(mock).balance, 0);
-        mixAccount.sendCallNoReturn.value(50)(address(mock), hex"dad03cb0");
+        mixAccount.sendCallNoReturn{value: 50}(address(mock), hex"dad03cb0");
         assertEq(address(mock).balance, 0);
         assertEq(address(this).balance, startBalance);
     }
@@ -138,40 +138,40 @@ contract MixAccountProxy is MixAccountInterface, ERC1155TokenReceiver {
         mixAccount = _mixAccount;
     }
 
-    function setController(address payable newController) external {
+    function setController(address payable newController) override external {
         mixAccount.setController(newController);
     }
 
-    function sendCall(address to, bytes calldata data) external payable returns (bool success, bytes memory returnData) {
+    function sendCall(address to, bytes calldata data) override external payable returns (bool success, bytes memory returnData) {
         (success, returnData) = mixAccount.sendCall(to, data);
     }
 
-    function sendCallNoReturn(address to, bytes calldata data) external payable {
+    function sendCallNoReturn(address to, bytes calldata data) override external payable {
         mixAccount.sendCallNoReturn(to, data);
     }
 
-    function withdraw() external {
+    function withdraw() override external {
         mixAccount.withdraw();
     }
 
-    function destroy() external {
+    function destroy() override external {
         mixAccount.destroy();
     }
 
-    function() external payable {}
+    receive() override payable external {}
 
-    function onERC1155Received(address operator, address from, uint id, uint value, bytes calldata data) external returns (bytes4) {
+    function onERC1155Received(address operator, address from, uint id, uint value, bytes calldata data) override external returns (bytes4) {
         return mixAccount.onERC1155Received(operator, from, id, value, data);
     }
 
-    function onERC1155BatchReceived(address operator, address from, uint[] calldata ids, uint[] calldata values, bytes calldata data) external returns (bytes4) {
+    function onERC1155BatchReceived(address operator, address from, uint[] calldata ids, uint[] calldata values, bytes calldata data) override external returns (bytes4) {
         return mixAccount.onERC1155BatchReceived(operator, from, ids, values, data);
     }
 }
 
 contract Mock {
 
-    function() external payable {
+    receive() payable external {
         revert ("fallback error");
     }
 

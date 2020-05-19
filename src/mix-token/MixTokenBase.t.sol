@@ -1,7 +1,7 @@
-pragma solidity ^0.5.12;
+pragma solidity ^0.6.7;
 
 import "ds-test/test.sol";
-import "mix-item-store/MixItemStoreIpfsSha256.sol";
+import "../mix-item-store/MixItemStoreIpfsSha256.sol";
 import "./MixTokenBase.sol";
 
 
@@ -113,7 +113,7 @@ contract Token is MixTokenInterface, MixTokenBase {
         accountBalance[msg.sender] = 10;
     }
 
-    function totalSupply() external view returns (uint) {
+    function totalSupply() override external view returns (uint) {
         return 10;
     }
 

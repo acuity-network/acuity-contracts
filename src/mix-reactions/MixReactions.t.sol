@@ -1,9 +1,9 @@
-pragma solidity ^0.5.10;
+pragma solidity ^0.6.7;
 
 import "ds-test/test.sol";
-import "mix-item-store/MixItemStoreRegistry.sol";
-import "mix-item-store/MixItemStoreIpfsSha256.sol";
-import "mix-trusted-accounts/MixTrustedAccounts.sol";
+import "../mix-item-store/MixItemStoreRegistry.sol";
+import "../mix-item-store/MixItemStoreIpfsSha256.sol";
+import "../mix-trusted-accounts/MixTrustedAccounts.sol";
 
 import "./MixReactions.sol";
 import "./MixReactionsProxy.sol";

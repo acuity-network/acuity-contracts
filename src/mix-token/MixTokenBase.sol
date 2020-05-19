@@ -1,7 +1,8 @@
-pragma solidity ^0.5.12;
+pragma solidity ^0.6.7;
 
-import "mix-item-store/MixItemStoreRegistry.sol";
+import "../mix-item-store/MixItemStoreRegistry.sol";
 import "./MixTokenItemRegistry.sol";
+import "./ERC165.sol";
 import "./MixTokenInterface.sol";
 
 
@@ -10,7 +11,7 @@ import "./MixTokenInterface.sol";
  * @author Jonathan Brown <jbrown@mix-blockchain.org>
  * @dev Base contract for building MIX tokens.
  */
-contract MixTokenBase is MixTokenInterface {
+abstract contract MixTokenBase is ERC165, MixTokenInterface {
 
     /**
      * @dev Mapping of account account to account balance.
@@ -25,12 +26,12 @@ contract MixTokenBase is MixTokenInterface {
     /**
      * @dev ERC-20 token currency code.
      */
-    string public symbol;
+    string override public symbol;
 
     /**
      * @dev ERC-20 token name.
      */
-    string public name;
+    string override public name;
 
     /**
      * @dev A token transfer has occured.
@@ -102,7 +103,7 @@ contract MixTokenBase is MixTokenInterface {
      * @param value Quantity of tokens to transfer.
      * @return True.
      */
-    function transfer(address to, uint value) external returns (bool) {
+    function transfer(address to, uint value) virtual override external returns (bool) {
         // Transfer the tokens.
         _transfer(msg.sender, to, value);
         return true;
@@ -115,7 +116,7 @@ contract MixTokenBase is MixTokenInterface {
      * @param value Quantity of tokens to transfer.
      * @return True.
      */
-    function transferFrom(address from, address to, uint value) external isAuthorized(from) returns (bool) {
+    function transferFrom(address from, address to, uint value) virtual override external isAuthorized(from) returns (bool) {
         // Transfer the tokens.
         _transfer(from, to, value);
         return true;
@@ -125,7 +126,7 @@ contract MixTokenBase is MixTokenInterface {
      * @dev Authorize account to transfer tokens from sender.
      * @param account Address of account to authorize.
      */
-    function authorize(address account) external {
+    function authorize(address account) virtual override external {
         accountAuthorized[msg.sender][account] = true;
         emit Authorize(msg.sender, account);
     }
@@ -134,7 +135,7 @@ contract MixTokenBase is MixTokenInterface {
      * @dev Unauthorize account to transfer tokens from sender.
      * @param account Address of account to unauthorize.
      */
-    function unauthorize(address account) external {
+    function unauthorize(address account) virtual override external {
         delete accountAuthorized[msg.sender][account];
         emit Unauthorize(msg.sender, account);
     }
@@ -143,7 +144,7 @@ contract MixTokenBase is MixTokenInterface {
      * @dev Get number of decimal places token has.
      * @return 18
      */
-    function decimals() external view returns (uint) {
+    function decimals() virtual override external view returns (uint) {
         return 18;
     }
 
@@ -152,7 +153,7 @@ contract MixTokenBase is MixTokenInterface {
      * @param account Address of account to query.
      * @return Token balance of account.
      */
-    function balanceOf(address account) public view returns (uint) {
+    function balanceOf(address account) virtual override public view returns (uint) {
         return uint(accountBalance[account]);
     }
 
@@ -162,7 +163,7 @@ contract MixTokenBase is MixTokenInterface {
      * @param accountToCheck Address of account that should be checked if it is authorized to send funds.
      * @return True if accountToCheck is permited to transfer funds.
      */
-    function getAccountAuthorized(address account, address accountToCheck) external view returns (bool) {
+    function getAccountAuthorized(address account, address accountToCheck) virtual override external view returns (bool) {
         return accountAuthorized[account][accountToCheck];
     }
 
@@ -171,7 +172,7 @@ contract MixTokenBase is MixTokenInterface {
      * @param interfaceId The interface identifier, as specified in ERC-165.
      * @return true if the contract implements interfaceID.
      */
-    function supportsInterface(bytes4 interfaceId) public view returns (bool) {
+    function supportsInterface(bytes4 interfaceId) virtual override public view returns (bool) {
         return (interfaceId == 0x01ffc9a7 ||    // ERC165
             interfaceId == 0xa66762eb);         // MixTokenInterface
     }

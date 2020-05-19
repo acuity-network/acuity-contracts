@@ -1,7 +1,7 @@
-pragma solidity ^0.5.12;
+pragma solidity ^0.6.7;
 
 import "ds-test/test.sol";
-import "mix-item-store/MixItemStoreIpfsSha256.sol";
+import "../mix-item-store/MixItemStoreIpfsSha256.sol";
 import "./MixCreatorToken.sol";
 import "./MixTokenBurn.sol";
 

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.12;
+pragma solidity ^0.6.7;
 
 import "./ERC165.sol";
 import "./MixTokenBase.sol";
@@ -9,12 +9,12 @@ import "./MixTokenBase.sol";
  * @author Jonathan Brown <jbrown@mix-blockchain.org>
  * @dev MIX token that continually pays its owner.
  */
-contract MixCreatorToken is ERC165, MixTokenInterface, MixTokenOwnedInterface, MixTokenBase {
+contract MixCreatorToken is MixTokenBase, MixTokenOwnedInterface {
 
     /**
      * @dev Address of the token owner account.
      */
-    address public owner;
+    address override public owner;
 
     /**
      * @dev Timestamp of when the token was started.
@@ -53,7 +53,7 @@ contract MixCreatorToken is ERC165, MixTokenInterface, MixTokenOwnedInterface, M
      * @dev Get the current total supply of the token.
      * @return The total quantity of the token in existance.
      */
-    function totalSupply() public view returns (uint) {
+    function totalSupply() override public view returns (uint) {
         return initialBalance + ((block.timestamp - start) * dailyPayout) / 1 days;
     }
 
@@ -62,7 +62,7 @@ contract MixCreatorToken is ERC165, MixTokenInterface, MixTokenOwnedInterface, M
     * @param account Address of the account.
     * @return The account's token balance.
      */
-    function balanceOf(address account) public view returns (uint) {
+    function balanceOf(address account) override public view returns (uint) {
         // Is account the token owner?
         if (account == owner) {
             return uint(accountBalance[account] + int(totalSupply()));
@@ -77,7 +77,7 @@ contract MixCreatorToken is ERC165, MixTokenInterface, MixTokenOwnedInterface, M
      * @param interfaceId The interface identifier, as specified in ERC-165.
      * @return true if the contract implements interfaceId.
      */
-    function supportsInterface(bytes4 interfaceId) public view returns (bool) {
+    function supportsInterface(bytes4 interfaceId) override public view returns (bool) {
         return (MixTokenBase.supportsInterface(interfaceId) ||
             interfaceId == 0x8da5cb5b ||        // MixTokenOwnedInterface
             interfaceId == 0xd6559ea1);         // MixCreatorToken

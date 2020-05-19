@@ -1,6 +1,6 @@
-pragma solidity ^0.5.11;
+pragma solidity ^0.6.7;
 
-import "mix-item-store/MixItemStoreInterface.sol";
+import "../mix-item-store/MixItemStoreInterface.sol";
 
 
 /**
@@ -136,7 +136,7 @@ contract MixItemTopics {
      * @param topicHash Hash of the topic
      * @param offset Index of the first itemId to retreive.
      * @param limit Maximum number of itemIds to retrieve.
-     * @return The itemIds.
+     * @return itemIds The itemIds.
      */
     function getTopicItemsByQuery(bytes32 topicHash, uint offset, uint limit) external view topicExists(topicHash) returns (bytes32[] memory itemIds) {
         // Get topic itemIds.

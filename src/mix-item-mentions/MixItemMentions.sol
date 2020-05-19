@@ -1,6 +1,6 @@
-pragma solidity ^0.5.11;
+pragma solidity ^0.6.7;
 
-import "mix-item-store/MixItemStoreInterface.sol";
+import "../mix-item-store/MixItemStoreInterface.sol";
 
 
 contract MixItemMentions {
@@ -86,7 +86,7 @@ contract MixItemMentions {
      * @param account Address of the account.
      * @param offset Index of the first itemId to retreive.
      * @param limit Maximum number of itemIds to retrieve.
-     * @return The itemIds.
+     * @return itemIds The itemIds.
      */
     function getMentionItemsByQuery(address account, uint offset, uint limit) external view returns (bytes32[] memory itemIds) {
         // Get mention itemIds.

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.11;
+pragma solidity ^0.6.7;
 
 
 /**
@@ -72,7 +72,7 @@ interface MixAccountInterface /* is ERC1155TokenReceiver, ERC165 */ {
     /**
      * @dev Fallback function.
      */
-    function() external payable;
+    receive() payable external;
 
 }
 

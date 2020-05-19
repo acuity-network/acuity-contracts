@@ -1,6 +1,6 @@
-pragma solidity ^0.5.12;
+pragma solidity ^0.6.7;
 
-import "mix-item-store/MixItemStoreRegistry.sol";
+import "../mix-item-store/MixItemStoreRegistry.sol";
 import "./MixTokenInterface.sol";
 
 

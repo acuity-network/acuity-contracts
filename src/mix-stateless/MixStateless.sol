@@ -4,6 +4,11 @@ import "../mix-item-store/MixItemStoreRegistry.sol";
 import "../mix-item-dag/MixItemDagOnlyOwner.sol";
 
 
+/**
+ * @title MixStateless
+ * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @dev Contract that has no state.
+ */
 contract MixStateless {
 
     /**
@@ -92,7 +97,7 @@ contract MixStateless {
             }
             if (found) {
                 // Have we found enough itemIds to start storing them yet?
-                if (offset > 0) {
+                if (offset == 0) {
                     // Store the found itemId.
                     tempItemIds[itemCount++] = feedLatestItem[mostRecent].itemId;
                 }
@@ -109,8 +114,8 @@ contract MixStateless {
                         uint feedOffset = --feedLatestItem[mostRecent].offset;
                         bytes32 itemId = itemDagFeedItems.getChildId(feedLatestItem[mostRecent].feedId, feedOffset);
                         // Check that the item is enforcing revisioning and has not been retracted.
-                        if (itemStore.getEnforceRevisions(itemId) &&
-                            itemStore.getRevisionCount(itemId) > 0)
+                        if (!itemStore.getEnforceRevisions(itemId) ||
+                            itemStore.getRevisionCount(itemId) == 0)
                         {
                             // Is this the final item in the feed?
                             if (feedLatestItem[mostRecent].offset == 0) {

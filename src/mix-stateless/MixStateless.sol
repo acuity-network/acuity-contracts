@@ -79,7 +79,9 @@ contract MixStateless {
                     continue;
                 }
                 if (found) {
-                    if (feedLatestItem[i].timestamp > feedLatestItem[mostRecent].timestamp) {
+                    // Timestamp == 0 for unconfirmed txs.
+                    if (feedLatestItem[i].timestamp == 0 ||
+                        feedLatestItem[i].timestamp > feedLatestItem[mostRecent].timestamp) {
                         mostRecent = i;
                     }
                 }

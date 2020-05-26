@@ -51,6 +51,12 @@ contract MixStateless {
             // Does this feed have any items?
             if (childCount > 0) {
                 bytes32 itemId = itemDagFeedItems.getChildId(feedIds[i], childCount - 1);
+                // Check that the item is enforcing revisioning and has not been retracted.
+                if (!itemStore.getEnforceRevisions(itemId) ||
+                    itemStore.getRevisionCount(itemId) == 0)
+                {
+                    continue;
+                }
                 feedLatestItem[i] = FeedLatestItem({
                     active: true,
                     feedId: feedIds[i],

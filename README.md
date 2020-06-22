@@ -1,5 +1,5 @@
-# MIX Contracts
-Monorepo for core smart contracts on MIX Blockchain.
+# Acuity Contracts
+Monorepo for core smart contracts on Acuity.
 
 ## Testing
 

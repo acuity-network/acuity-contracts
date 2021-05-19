@@ -1,6 +1,18 @@
 # Acuity Contracts
 Monorepo for core smart contracts on Acuity.
 
+Original repos:
+* https://github.com/acuity-social/mix-account-items
+* https://github.com/acuity-social/mix-account-profile
+* https://github.com/acuity-social/mix-account
+* https://github.com/acuity-social/mix-item-dag
+* https://github.com/acuity-social/mix-item-mentions
+* https://github.com/acuity-social/mix-item-store
+* https://github.com/acuity-social/mix-item-topics
+* https://github.com/acuity-social/mix-reactions
+* https://github.com/acuity-social/mix-token
+* https://github.com/acuity-social/mix-trusted-accounts
+
 ## Testing
 
 ```

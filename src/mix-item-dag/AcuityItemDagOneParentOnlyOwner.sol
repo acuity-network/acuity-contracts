@@ -5,7 +5,7 @@ import "./AcuityItemDagOneParent.sol";
 
 /**
  * @title AcuityItemDagOneParentOnlyOwner
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Maintains a directed acyclic graph of items where each item can only have one parent and child items have the same owner as the parent.
  */
 contract AcuityItemDagOneParentOnlyOwner is AcuityItemDagOneParent {

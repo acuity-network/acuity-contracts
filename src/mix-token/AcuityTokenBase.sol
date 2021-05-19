@@ -8,7 +8,7 @@ import "./AcuityTokenInterface.sol";
 
 /**
  * @title AcuityTokenBase
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Base contract for building MIX tokens.
  */
 abstract contract AcuityTokenBase is ERC165, AcuityTokenInterface {

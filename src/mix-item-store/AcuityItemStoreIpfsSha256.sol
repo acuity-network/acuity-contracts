@@ -7,7 +7,7 @@ import "./AcuityItemStoreRegistry.sol";
 
 /**
  * @title AcuityItemStoreIpfsSha256
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev AcuityItemStoreInterface implementation where each item revision is a SHA256 IPFS hash.
  */
 contract AcuityItemStoreIpfsSha256 is AcuityItemStoreInterface, AcuityItemStoreConstants {

@@ -3,7 +3,7 @@ pragma solidity ^0.6.7;
 
 /**
  * @title AcuityItemStoreInterface
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Implementation interface for item store contracts.
  */
 interface AcuityItemStoreInterface {

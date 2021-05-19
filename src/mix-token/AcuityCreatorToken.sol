@@ -6,7 +6,7 @@ import "./AcuityTokenBase.sol";
 
 /**
  * @title AcuityCreatorToken
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev MIX token that continually pays its owner.
  */
 contract AcuityCreatorToken is AcuityTokenBase, AcuityTokenOwnedInterface {
@@ -88,7 +88,7 @@ contract AcuityCreatorToken is AcuityTokenBase, AcuityTokenOwnedInterface {
 
 /**
  * @title AcuityCreatorTokenInterfaceId
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Contract to determine interface ID of AcuityCreatorToken.
  */
 contract AcuityCreatorTokenInterfaceId {

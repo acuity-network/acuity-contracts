@@ -5,7 +5,7 @@ import "../mix-item-store/AcuityItemStoreRegistry.sol";
 
 /**
  * @title AcuityAccountProfile
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Enables each account to associate itself with a profile item.
  */
 contract AcuityAccountProfile {

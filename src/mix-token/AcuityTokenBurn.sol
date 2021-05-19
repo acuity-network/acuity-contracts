@@ -6,7 +6,7 @@ import "./AcuityTokenItemRegistry.sol";
 
 /**
  * @title AcuityTokenBurn
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Enable accounts to burn their tokens.
  */
 contract AcuityTokenBurn {

@@ -3,7 +3,7 @@ pragma solidity ^0.6.7;
 
 /**
  * @title AcuityAccountInterface
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Interface for implementing a MIX account contract.
  */
 interface AcuityAccountInterface /* is ERC1155TokenReceiver, ERC165 */ {

@@ -3,7 +3,7 @@ pragma solidity ^0.6.7;
 
 /**
  * @title AcuityItemStoreShortId
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Maintains a bidirectional mapping between 32 byte itemIds and 4 byte shortIds.
  */
 contract AcuityItemStoreShortId {

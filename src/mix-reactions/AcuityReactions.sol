@@ -7,7 +7,7 @@ import "../mix-trusted-accounts/AcuityTrustedAccounts.sol";
 
 /**
  * @title AcuityReactions
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Enables users to react with emojis to content items.
  */
 contract AcuityReactions {

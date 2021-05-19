@@ -3,7 +3,7 @@ pragma solidity ^0.6.7;
 
 /**
  * @title AcuityTrustedAccounts
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Enables each account to maintain a public list of trusted accounts.
  */
 contract AcuityTrustedAccounts {

@@ -5,7 +5,7 @@ import "../mix-item-store/AcuityItemStoreRegistry.sol";
 
 /**
  * @title AcuityAccountItems
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Enables users to attach a list of items to their account.
  */
 contract AcuityAccountItems {

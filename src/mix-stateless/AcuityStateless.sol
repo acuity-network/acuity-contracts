@@ -6,7 +6,7 @@ import "../mix-item-dag/AcuityItemDagOnlyOwner.sol";
 
 /**
  * @title AcuityStateless
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Contract that has no state.
  */
 contract AcuityStateless {

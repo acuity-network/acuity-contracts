@@ -6,7 +6,7 @@ import "./AcuityTokenInterface.sol";
 
 /**
  * @title AcuityTokenItemRegistry
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Contract to map tokens to their content items.
  */
 contract AcuityTokenItemRegistry {

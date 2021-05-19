@@ -5,7 +5,7 @@ import "./AcuityAccount.sol";
 
 /**
  * @title AcuityAccountRegistry
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Enables controllers to store a record of which account they control.
  */
 contract AcuityAccountRegistry {

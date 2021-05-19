@@ -7,7 +7,7 @@ import "./ERC1155TokenReceiver.sol";
 
 /**
  * @title AcuityAccount
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Contract for each MIX account.
  */
 contract AcuityAccount is ERC165, AcuityAccountInterface, ERC1155TokenReceiver {

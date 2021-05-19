@@ -5,7 +5,7 @@ import "../mix-item-store/AcuityItemStoreInterface.sol";
 
 /**
  * @title AcuityItemTopics
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Enables uncreated items to be added to topics.
  */
 contract AcuityItemTopics {

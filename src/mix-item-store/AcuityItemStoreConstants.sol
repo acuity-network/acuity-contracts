@@ -3,7 +3,7 @@ pragma solidity ^0.6.7;
 
 /**
  * @title AcuityItemStoreConstants
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Provides constants for item store.
  */
 contract AcuityItemStoreConstants {

@@ -6,7 +6,7 @@ import "./AcuityItemStoreInterface.sol";
 
 /**
  * @title AcuityItemStoreRegistry
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Maintains a registry of AcuityItemStoreInterface contracts.
  */
 contract AcuityItemStoreRegistry is AcuityItemStoreConstants {

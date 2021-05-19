@@ -6,7 +6,7 @@ import "../mix-item-store/AcuityItemStoreRegistry.sol";
 
 /**
  * @title AcuityItemDag
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Maintains a directed acyclic graph of items.
  */
 contract AcuityItemDag {

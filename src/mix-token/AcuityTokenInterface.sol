@@ -3,7 +3,7 @@ pragma solidity ^0.6.7;
 
 /**
  * @title AcuityTokenInterface
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Interface for MIX tokens.
  */
 interface AcuityTokenInterface {
@@ -22,7 +22,7 @@ interface AcuityTokenInterface {
 
 /**
  * @title AcuityCreatorTokenInterfaceId
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Contract to determine interface ID of AcuityTokenInterface.
  */
 contract AcuityTokenInterfaceId {
@@ -50,7 +50,7 @@ contract AcuityTokenInterfaceId {
 
 /**
  * @title AcuityTokenInterface
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Interface for owned MIX tokens.
  */
 interface AcuityTokenOwnedInterface {
@@ -60,7 +60,7 @@ interface AcuityTokenOwnedInterface {
 
 /**
  * @title AcuityCreatorTokenInterfaceId
- * @author Jonathan Brown <jbrown@mix-blockchain.org>
+ * @author Jonathan Brown <jbrown@acuity.social>
  * @dev Contract to determine interface ID of AcuityTokenOwnedInterface.
  */
 contract AcuityTokenOwnedInterfaceId {

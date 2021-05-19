@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "ds-test/test.sol";
 import "../acuity-item-store/AcuityItemStoreIpfsSha256.sol";
@@ -77,7 +78,7 @@ contract AcuityTokenItemRegistryTestMockAccount {
 
     AcuityItemStoreIpfsSha256 acuityItemStore;
 
-    constructor(AcuityItemStoreIpfsSha256 _acuityItemStore) public {
+    constructor(AcuityItemStoreIpfsSha256 _acuityItemStore) {
         acuityItemStore = _acuityItemStore;
     }
 

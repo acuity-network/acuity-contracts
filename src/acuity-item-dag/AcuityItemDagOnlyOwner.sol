@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "./AcuityItemDag.sol";
 
@@ -13,7 +14,7 @@ contract AcuityItemDagOnlyOwner is AcuityItemDag {
     /**
      * @param _itemStoreRegistry Address of the AcuityItemStoreRegistry contract.
      */
-    constructor(AcuityItemStoreRegistry _itemStoreRegistry) AcuityItemDag(_itemStoreRegistry) public {}
+    constructor(AcuityItemStoreRegistry _itemStoreRegistry) AcuityItemDag(_itemStoreRegistry) {}
 
     /**
      * @dev Add a child to an item. The child must not exist yet.

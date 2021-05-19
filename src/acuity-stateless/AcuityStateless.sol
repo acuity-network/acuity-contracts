@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "../acuity-item-store/AcuityItemStoreRegistry.sol";
 import "../acuity-item-dag/AcuityItemDagOnlyOwner.sol";
@@ -25,7 +26,7 @@ contract AcuityStateless {
      * @param _itemStore Address of the AcuityItemStoreInterface contract.
      * @param _itemDagFeedItems Address of the AcuityItemDagOnlyOwner contract.
      */
-    constructor(AcuityItemStoreInterface _itemStore, AcuityItemDagOnlyOwner _itemDagFeedItems) public {
+    constructor(AcuityItemStoreInterface _itemStore, AcuityItemDagOnlyOwner _itemDagFeedItems) {
         // Store the address of the AcuityItemStore contract.
         itemStore = _itemStore;
         // Store the address of the AcuityItemDagOnlyOwner contract.

@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "./AcuityItemStoreInterface.sol";
 import "./AcuityItemStoreIpfsSha256.sol";
@@ -8,7 +9,7 @@ contract AcuityItemStoreIpfsSha256Proxy is AcuityItemStoreInterface {
 
     AcuityItemStoreIpfsSha256 acuityItemStoreIpfsSha256;
 
-    constructor (AcuityItemStoreIpfsSha256 _acuityItemStore) public {
+    constructor (AcuityItemStoreIpfsSha256 _acuityItemStore) {
         acuityItemStoreIpfsSha256 = _acuityItemStore;
     }
 

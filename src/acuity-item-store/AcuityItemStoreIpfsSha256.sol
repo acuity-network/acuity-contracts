@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "./AcuityItemStoreInterface.sol";
 import "./AcuityItemStoreConstants.sol";
@@ -139,7 +140,7 @@ contract AcuityItemStoreIpfsSha256 is AcuityItemStoreInterface, AcuityItemStoreC
     /**
      * @param _itemStoreRegistry Address of the AcuityItemStoreRegistry contract.
      */
-    constructor(AcuityItemStoreRegistry _itemStoreRegistry) public {
+    constructor(AcuityItemStoreRegistry _itemStoreRegistry) {
         // Store the address of the AcuityItemStoreRegistry contract.
         itemStoreRegistry = _itemStoreRegistry;
         // Register this contract.
@@ -437,7 +438,7 @@ contract AcuityItemStoreIpfsSha256 is AcuityItemStoreInterface, AcuityItemStoreC
      * @dev Get the ABI version for this contract.
      * @return ABI version.
      */
-    function getAbiVersion() override external view returns (uint) {
+    function getAbiVersion() override external pure returns (uint) {
         return ABI_VERSION;
     }
 

@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "../acuity-item-store/AcuityItemStoreRegistry.sol";
 import "./AcuityTokenInterface.sol";
@@ -29,7 +30,7 @@ contract AcuityTokenItemRegistry {
     /**
      * @param _itemStoreRegistry Address of the ItemStoreRegistry contract.
      */
-    constructor(AcuityItemStoreRegistry _itemStoreRegistry) public {
+    constructor(AcuityItemStoreRegistry _itemStoreRegistry) {
         // Store the address of the ItemStoreRegistry contract.
         itemStoreRegistry = _itemStoreRegistry;
     }

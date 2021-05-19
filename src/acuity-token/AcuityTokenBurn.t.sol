@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "ds-test/test.sol";
 import "../acuity-item-store/AcuityItemStoreIpfsSha256.sol";
@@ -15,7 +16,7 @@ contract AccountProxy {
     AcuityTokenBurn acuityTokenBurn;
     AcuityItemStoreIpfsSha256 acuityItemStore;
 
-    constructor (AcuityTokenInterface _token0, AcuityTokenInterface _token1, AcuityTokenInterface _token2, AcuityTokenInterface _token3, AcuityTokenBurn _acuityTokenBurn, AcuityItemStoreIpfsSha256 _acuityItemStore) public {
+    constructor (AcuityTokenInterface _token0, AcuityTokenInterface _token1, AcuityTokenInterface _token2, AcuityTokenInterface _token3, AcuityTokenBurn _acuityTokenBurn, AcuityItemStoreIpfsSha256 _acuityItemStore) {
         token0 = _token0;
         token1 = _token1;
         token2 = _token2;

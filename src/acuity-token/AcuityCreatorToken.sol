@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "./ERC165.sol";
 import "./AcuityTokenBase.sol";
@@ -38,7 +39,7 @@ contract AcuityCreatorToken is AcuityTokenBase, AcuityTokenOwnedInterface {
      * @param _initialBalance Initial balance of the token owner.
      * @param _dailyPayout Daily payout to the token owner.
      */
-    constructor(string memory symbol, string memory name, address _owner, uint _initialBalance, uint _dailyPayout) public AcuityTokenBase(symbol, name) {
+    constructor(string memory symbol, string memory name, address _owner, uint _initialBalance, uint _dailyPayout) AcuityTokenBase(symbol, name) {
         // Make sure parameters are not too large.
         require (_initialBalance < uint224(-1), "Initial balance is too big.");
         require (_dailyPayout < uint192(-1), "Daily payout is too big.");

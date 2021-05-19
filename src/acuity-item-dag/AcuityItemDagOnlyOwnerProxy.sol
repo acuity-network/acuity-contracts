@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "./AcuityItemDagOnlyOwner.sol";
 
@@ -7,7 +8,7 @@ contract AcuityItemDagOnlyOwnerProxy {
 
     AcuityItemDagOnlyOwner acuityItemDagOnlyOwner;
 
-    constructor (AcuityItemDagOnlyOwner _acuityItemDagOnlyOwner) public {
+    constructor (AcuityItemDagOnlyOwner _acuityItemDagOnlyOwner) {
         acuityItemDagOnlyOwner = _acuityItemDagOnlyOwner;
     }
 

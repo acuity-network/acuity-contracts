@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "ds-test/test.sol";
 import "../acuity-item-store/AcuityItemStoreIpfsSha256.sol";
@@ -107,13 +108,12 @@ contract AcuityTokenBaseTest is DSTest {
 
 contract Token is AcuityTokenInterface, AcuityTokenBase {
 
-    constructor(string memory symbol, string memory name) public
-        AcuityTokenBase(symbol, name)
+    constructor(string memory symbol, string memory name) AcuityTokenBase(symbol, name)
     {
         accountBalance[msg.sender] = 10;
     }
 
-    function totalSupply() override external view returns (uint) {
+    function totalSupply() override external pure returns (uint) {
         return 10;
     }
 
@@ -124,7 +124,7 @@ contract AcuityTokenBaseMockAccount {
 
     AcuityTokenBase token;
 
-    constructor(AcuityTokenBase _token) public {
+    constructor(AcuityTokenBase _token) {
         token = _token;
     }
 

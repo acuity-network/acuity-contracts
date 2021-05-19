@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "./ERC165.sol";
 import "./AcuityAccountInterface.sol";
@@ -36,7 +37,7 @@ contract AcuityAccount is ERC165, AcuityAccountInterface, ERC1155TokenReceiver {
     /**
      * @dev Constructor.
      */
-    constructor() public {
+    constructor() {
         // Store the controller.
         controller = msg.sender;
         // Log the event.
@@ -192,7 +193,7 @@ contract AcuityAccount is ERC165, AcuityAccountInterface, ERC1155TokenReceiver {
      * @param interfaceId The interface identifier, as specified in ERC-165.
      * @return true if the contract implements interfaceID.
      */
-    function supportsInterface(bytes4 interfaceId) override external view returns (bool) {
+    function supportsInterface(bytes4 interfaceId) override external pure returns (bool) {
         if (interfaceId == 0x01ffc9a7 ||    // EIP165
             interfaceId == 0x527f66d8 ||    // AcuityAccountInterface
             interfaceId == 0x4e2312e0)      // ERC1155TokenReceiver

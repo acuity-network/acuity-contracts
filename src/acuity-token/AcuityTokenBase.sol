@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "../acuity-item-store/AcuityItemStoreRegistry.sol";
 import "./AcuityTokenItemRegistry.sol";
@@ -78,7 +79,7 @@ abstract contract AcuityTokenBase is ERC165, AcuityTokenInterface {
      * @param _symbol ERC-20 token currency code.
      * @param _name ERC-20 token name.
      */
-    constructor(string memory _symbol, string memory _name) public {
+    constructor(string memory _symbol, string memory _name) {
         symbol = _symbol;
         name = _name;
     }

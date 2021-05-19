@@ -1,4 +1,5 @@
-pragma solidity ^0.6.7;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.7.4;
 
 import "./AcuityAccountItems.sol";
 
@@ -7,7 +8,7 @@ contract AcuityAccountItemsProxy {
 
     AcuityAccountItems acuityAccountItems;
 
-    constructor (AcuityAccountItems _acuityAccountItems) public {
+    constructor (AcuityAccountItems _acuityAccountItems) {
         acuityAccountItems = _acuityAccountItems;
     }
 

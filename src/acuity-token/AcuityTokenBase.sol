@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-pragma solidity ^0.7.4;
+pragma solidity ^0.7.6;
 
 import "../acuity-item-store/AcuityItemStoreRegistry.sol";
 import "./AcuityTokenItemRegistry.sol";

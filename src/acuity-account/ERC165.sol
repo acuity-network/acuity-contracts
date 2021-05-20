@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-pragma solidity ^0.7.4;
+pragma solidity ^0.7.6;
 
 interface ERC165 {
     /// @notice Query if a contract implements an interface
